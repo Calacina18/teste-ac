@@ -825,7 +825,7 @@ body::after {
         <i class="fas fa-heart"></i>
         <span class="badge" id="badgeFav" style="display:none"></span>
       </button>
-      <button class="icon-btn cart-btn" onclick="abrirCarrinho()" title="Carrinho">
+      <button class="icon-btn cart-btn" onclick="abrirCarrinho()" title="Sacola">
         <i class="fas fa-shopping-bag"></i>
         <span class="badge" id="badgeCart" style="display:none">0</span>
       </button>
@@ -847,11 +847,8 @@ body::after {
     <h1 class="hero-titulo" id="elHeroTitulo"></h1>
     <p class="hero-sub" id="elHeroSub"></p>
     <div class="hero-btns">
-      <button class="btn-prim" onclick="irCategoria('modus')">
-        </i> Ver Coleção STREETWEAR
-      </button>
-      <button class="btn-branco" onclick="irCategoria('all')">
-        Explorar Tudo <i class="fas fa-arrow-right"></i>
+      <button class="btn-prim" onclick="irCategoria('all')">
+        Explorar Produtos <i class="fas fa-arrow-right"></i>
       </button>
     </div>
   </div>
@@ -1028,7 +1025,7 @@ body::after {
 <div id="ovCarrinho" class="painel-overlay" onclick="fecharOverlay('ovCarrinho')">
   <div class="painel" onclick="event.stopPropagation()">
     <div class="painel-header">
-      <h3><i class="fas fa-shopping-bag"></i> Carrinho</h3>
+      <h3><i class="fas fa-shopping-bag"></i> Sacola</h3>
       <button onclick="fecharOverlay('ovCarrinho')"><i class="fas fa-times"></i></button>
     </div>
     <div id="listaCarrinho" class="painel-body"></div>
@@ -1093,7 +1090,7 @@ body::after {
         </div>
         <div class="modal-acoes">
           <button class="btn-prim flex1" onclick="adicionarCarrinho()">
-            <i class="fas fa-shopping-bag"></i> Adicionar ao Carrinho
+            <i class="fas fa-shopping-bag"></i> Adicionar à Sacola
           </button>
           <button class="btn-ghost" id="btnFavModal" onclick="toggleFavModal()">
             <i class="fas fa-heart"></i>
@@ -1374,7 +1371,7 @@ const CONFIG = {
 //  id         → Número único (não repita!)
 //  nome       → Nome do produto
 //  marca      → "ACRE STREETWEAR" ou outra marca
-//  categoria  → "modus" | "camisetas" | "calcas" | "moletons" | "vestidos" | "acessorios"
+//  categoria  → "modus" | "camisetas"
 //               (use "modus" para aparecer na aba exclusiva ACRE STREETWEAR)
 //  preco      → Use ponto para decimal. Ex: 89.90
 //  precoAntigo→ null = sem desconto
@@ -1392,13 +1389,13 @@ const PRODUTOS = [
 
   {
     id: 1,
-    nome:        "Camiseta Modus oversized 2pac all eyers on me",
+    nome:        "Camiseta Modus oversized 'All eyes on me",
     marca:       "ACRE STREETWEAR",
     categoria:   "modus",
-    preco:       69.90,
+    preco:       65.00,
     precoAntigo: null,
     badge:       "Exclusivo",
-    descricao:   "A camiseta oversized 2pac exclusivo c.l modus da marca. Algodão 100% penteado, caimento perfeito e logo bordado no peito.",
+    descricao:   "Camiseta oversized 100% algodão estampa unica e exclusiva da Ac Streetwear.",
     tamanhos:    ["P", "M", "G", "GG", "XG"],
     cores: [
       { nome: "Preto",  hex: "#1a1a1a", foto: "img/prod1-preto.jpg" },
@@ -1412,33 +1409,32 @@ const PRODUTOS = [
 
   {
     id: 2,
-    nome:        "MODUS Logo Hoodie",
+    nome:        "camiseta Modus Oversized Exclusiva ACST",
     marca:       "ACRE STREETWEAR",
     categoria:   "modus",
-    preco:       149.90,
-    precoAntigo: 189.90,
-    badge:       "Promoção",
-    descricao:   "Moletom com capuz, interior felpado e logo MODUS em silk. Perfeito para os dias mais frios.",
+    preco:       65.00,
+    badge:       "Exclusivo",
+    descricao:   "Camisa oversise 100% algodão, exclusiva da AC streetwear.",
     tamanhos:    ["P", "M", "G", "GG"],
     cores: [
       { nome: "Preto", hex: "#1a1a1a", foto: "img/prod2-preto.jpg" },
       { nome: "Roxo",  hex: "#7c3aed", foto: "img/prod2-roxo.jpg" },
     ],
     destaque: true,
-    novidade: false,
+    novidade: true,
     active:   true,
   },
 
   {
     id: 3,
-    nome:        "MODUS Cargo Pant",
+    nome:        "Camiseta Oversized do rei Balduíno",
     marca:       "ACRE STREETWEAR",
     categoria:   "modus",
     preco:       129.90,
     precoAntigo: null,
     badge:       "Exclusivo",
-    descricao:   "Calça cargo com múltiplos bolsos, cós elástico e tecido resistente. Estilo urbano com praticidade.",
-    tamanhos:    ["36", "38", "40", "42", "44"],
+    descricao:   "Camiseta oversized 100% algodão estampa unica e exclusiva da Ac Streetwear.",
+    tamanhos:    ["P", "M", "G", "GG", "XG"],
     cores: [
       { nome: "Preto", hex: "#1a1a1a", foto: "img/prod3-preto.jpg" },
       { nome: "Cinza", hex: "#4a4a4a", foto: "img/prod3-cinza.jpg" },
@@ -1508,88 +1504,6 @@ const PRODUTOS = [
     active:   true,
   },
 
-  // ─── CALÇAS ────────────────────────────────────────────────
-
-  {
-    id: 7,
-    nome:        "Jogger Premium",
-    marca:       "Variada",
-    categoria:   "calcas",
-    preco:       99.90,
-    precoAntigo: 129.90,
-    badge:       "Promoção",
-    descricao:   "Jogger de moletom com punhos ajustados e bolsos laterais. Conforto máximo sem abrir mão do estilo.",
-    tamanhos:    ["P", "M", "G", "GG"],
-    cores: [
-      { nome: "Preto", hex: "#1a1a1a", foto: "img/prod7-preto.jpg" },
-      { nome: "Cinza", hex: "#4a4a4a", foto: "img/prod7-cinza.jpg" },
-    ],
-    destaque: true,
-    novidade: false,
-    active:   true,
-  },
-
-  // ─── MOLETONS ──────────────────────────────────────────────
-
-  {
-    id: 8,
-    nome:        "Crewneck Essential",
-    marca:       "Variada",
-    categoria:   "moletons",
-    preco:       119.90,
-    precoAntigo: 149.90,
-    badge:       "Promoção",
-    descricao:   "Moletom careca em fleece premium. Interior macio, exterior durável. O clássico reinventado.",
-    tamanhos:    ["P", "M", "G", "GG", "XG"],
-    cores: [
-      { nome: "Preto",  hex: "#1a1a1a", foto: "img/prod8-preto.jpg" },
-      { nome: "Branco", hex: "#f5f5f0", foto: "img/prod8-branco.jpg" },
-    ],
-    destaque: true,
-    novidade: false,
-    active:   true,
-  },
-
-  // ─── VESTIDOS ──────────────────────────────────────────────
-
-  {
-    id: 9,
-    nome:        "Slip Dress Satinado",
-    marca:       "Variada",
-    categoria:   "vestidos",
-    preco:       109.90,
-    precoAntigo: null,
-    badge:       "Novo",
-    descricao:   "Vestido slip em tecido acetinado com alças finas. Elegância sem esforço.",
-    tamanhos:    ["P", "M", "G", "GG"],
-    cores: [
-      { nome: "Preto", hex: "#1a1a1a", foto: "img/prod9-preto.jpg" },
-      { nome: "Roxo",  hex: "#7c3aed", foto: "img/prod9-roxo.jpg" },
-    ],
-    destaque: false,
-    novidade: true,
-    active:   true,
-  },
-
-  // ─── ACESSÓRIOS ────────────────────────────────────────────
-
-  {
-    id: 10,
-    nome:        "Shoulder Bag Neon",
-    marca:       "Variada",
-    categoria:   "acessorios",
-    preco:       79.90,
-    precoAntigo: 99.90,
-    badge:       "Promoção",
-    descricao:   "Bolsa tiracolo com detalhes em neon roxo, interior forrado e alça ajustável. Material vegano.",
-    tamanhos:    ["Único"],
-    cores: [
-      { nome: "Preto/Neon", hex: "#1a1a1a", foto: "img/prod10-preto.jpg" },
-    ],
-    destaque: false,
-    novidade: true,
-    active:   true,
-  },
 
   // ════════════════════════════════════════════════════════════
   //  ► ADICIONE NOVOS PRODUTOS AQUI ↓
@@ -2020,7 +1934,7 @@ function adicionarCarrinho() {
   if (ex) ex.qtd += item.qtd; else carrinho.push(item);
   salvarCarrinho();
   fecharModal2('ovProduto');
-  toast(`✓ ${prodAtual.nome} adicionado ao carrinho!`);
+  toast(`✓ ${prodAtual.nome} adicionado à sacola!`);
 }
 
 function comprarAgora() {
@@ -2094,7 +2008,7 @@ function renderCarrinho() {
   const rod = document.getElementById('rodapeCarrinho');
 
   if (!carrinho.length) {
-    box.innerHTML = `<div class="painel-vazio"><i class="fas fa-shopping-bag"></i><p>Carrinho vazio</p></div>`;
+    box.innerHTML = `<div class="painel-vazio"><i class="fas fa-shopping-bag"></i><p>Sacola vazia</p></div>`;
     rod.style.display = 'none';
     return;
   }
